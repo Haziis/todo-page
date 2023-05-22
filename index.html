@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>toDo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="viewport">
+    
+  <header>
+    <h1 id="date" >March 9, 2020</h1>
+    <h5 id="counter">5 incomplete, 5 completed</h5>
+    <hr class="opacity-50">
+  </header>
+
+  <div id="incomplete" class="incomplete">
+    <h2>Incomplete</h2>
+    <div class="todo">
+      <div class="checkmark">
+        <input type="checkbox" id="horns" name="horns">
+      </div>
+      
+      <div class="todo-text">
+        <h3>Upload 1099-R to TurboTax</h3>
+        <h5>Finance</h5>
+      </div>
+      
+      
+
+    </div>
+    <div class="todo">
+      <div class="checkmark">
+        <input type="checkbox" id="horns" name="horns">
+      </div>
+    
+      <div class="todo-text">
+        <h3>Upload 1099-R to TurboTax</h3>
+        <h5>Finance</h5>
+      </div>
+    
+    
+    
+    </div>
+    
+  </div>
+  <div id="completed" class="completed">
+    <h2>Completed</h2>
+    <div class="todo">
+      <div class="checkmark">
+        <input type="checkbox" id="horns" name="horns" checked>
+      </div>
+    
+      <div class="todo-text">
+        <h3>Upload 1099-R to TurboTax</h3>
+        <h5>Finance</h5>
+      </div>
+
+      <div class="removeButtonDiv"><button>Remove</button></div>
+    
+    
+    
+    </div>
+
+  </div>
+
+  
+  
+
+  <button class="createNew" id="showDialog">
+    <img src="images/plus.svg" alt="New Item">
+  </button>
+<!-- modal stuff -->
+  <dialog id="favDialog">
+    <form>
+      <h1>Create New Task</h1>
+      <hr class="opacity-50">
+      <label for="taskname">Task name:</label>
+      <input type="text" name="taskname" id="taskname">
+      <label>Category:
+        <select>
+          <option value="default">Choose…</option>
+          <option>Finance</option>
+          <option>Wedding</option>
+          <option>Freelance</option>
+          <option>Shopping List</option>
+        </select>
+      </label>
+      <div>
+        <button id="confirmBtn" value="default">Submit</button>
+        <button value="cancel" formmethod="dialog">Cancel</button>
+        
+      </div>
+    </form>
+  </dialog>
+  <output></output>
+
+
+  <script src="script.js"></script>
+  
+</body>
+</html>

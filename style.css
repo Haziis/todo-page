@@ -1,0 +1,108 @@
+:root {
+  --bg-color:#141419;
+  --white:#dadada;
+  --checkmark-bg-color:#282a34;
+  --button-bg:#3F4EA0;
+  --button-border:#515CC6;
+  
+  margin: 0;
+}
+html, body {
+  
+  width: 99vw;
+  margin: 0;
+}
+body {
+  margin: 0;
+  color: var(--white);
+  background-color: var(--bg-color);
+  font-family: 'inter';
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.viewport {
+  width: 50%;
+}
+
+.todo{
+  display: grid;
+  grid-template-columns: 1fr 5fr 20%;
+
+}
+
+.checkmark {
+  width: 1fr;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkmark input {
+  transform:scale(2, 2);
+  background-color: var(--checkmark-bg-color);
+  accent-color: var(--checkmark-bg-color)
+}
+
+.todo-text {
+  margin-left: 15px;
+}
+
+.removeButtonDiv {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.todo-text h3 {
+  margin-bottom: 0;
+}
+.todo-text h5 {
+  margin-top: 10px;
+}
+
+h5 {
+  opacity: 50%;
+}
+
+hr {
+  opacity: 20%; 
+}
+
+@media (max-width: 900px) {
+  body {
+    display: block;
+  }
+  .viewport {
+    width: 100%;
+  }
+}
+
+.createNew {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: var(--button-bg);
+  
+  border: 2px solid var(--button-border);
+}
+
+.createNew img {
+  scale: 3;
+  color: white;
+}
+
+#favDialog {
+  background-color: var(--bg-color);
+  color: var(--white);
+  border: 1px solid;
+  border-radius: 20px;
+}
