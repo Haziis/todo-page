@@ -27,7 +27,9 @@ body {
 .viewport {
   width: 50%;
 }
-
+header {
+  padding-left: 10px;
+}
 .todo{
   display: grid;
   grid-template-columns: 1fr 5fr 20%;
