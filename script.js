@@ -79,6 +79,7 @@ class TodoItem {
     this.category = category;
     this.id = idCounter + 1;
     idCounter = this.id;
+    console.log(isCompleted, text, category);
 
     if ((this.isCompleted === true)) {
       completedTasks = completedTasks + 1;
@@ -91,10 +92,7 @@ class TodoItem {
   
   createTodo() {
     //DEV: fetches values from inputs
-    var taskElem = document.getElementById('task').value;
-    var catElem = document.getElementById('category').value;
-    this.text = taskElem;
-    this.category = catElem;
+    
 
     // creates parent div
     const wrapper = document.createElement('div');
@@ -146,27 +144,30 @@ class TodoItem {
 
 }
 
-function createIncompleted () {
-  item = new TodoItem(false, "asdff", 'asdff');
+function createNewTodo(comp, text, cat) {
+  console.log(comp, text, cat);
+  item = new TodoItem(comp, text, cat);
   item.createTodo();
   console.log(item);
 }
 
-function createCompleted() {
-  item = new TodoItem(true, "asdff", 'asdff');
-  item.createTodo();
-  console.log(item);
-}
 
 function moveTask(id) {
   wrapper = document.getElementById(id);
   completedElement.appendChild(wrapper);
+
   checkmarkWrapper = wrapper.firstChild;
   checkmark = checkmarkWrapper.firstChild;
+
+  
+
   if (checkmark.checked == false)
   {
     incompleteElem.appendChild(wrapper);
-    }
+  }
+
+
+
 
   console.log(checkmark.checked);
 }
@@ -175,9 +176,14 @@ function moveTask(id) {
 // modal stuff
 
 const showButton = document.getElementById("showDialog");
+
 const favDialog = document.getElementById("favDialog");
+
 const outputBox = document.querySelector("output");
+
 const selectEl = favDialog.querySelector("select");
+const TextElem = document.getElementById('taskname');
+
 const confirmBtn = favDialog.querySelector("#confirmBtn");
 
 // "Show the dialog" button opens the <dialog> modally
@@ -185,21 +191,30 @@ showButton.addEventListener("click", () => {
   favDialog.showModal();
 });
 
-// "Favorite animal" input sets the value of the submit button
-selectEl.addEventListener("change", (e) => {
-  confirmBtn.value = selectEl.value;
+// // "Favorite animal" input sets the value of the submit button
+// selectEl.addEventListener("change", (e) => {
+//   confirmBtn.value = selectEl.value;
+// });
+
+
+
+favDialog.addEventListener('close', (e) => {
+  console.log(TextElem.value);
+  console.log(selectEl.value);
+  createNewTodo(false, TextElem.value, selectEl.value);
 });
 
-// "Confirm" button triggers "close" on dialog because of [formmethod="dialog"]
-favDialog.addEventListener("close", (e) => {
-  outputBox.value =
-    favDialog.returnValue === "default"
-      ? "No return value."
-      : `ReturnValue: ${favDialog.returnValue}.`; // Have to check for "default" rather than empty string
-});
+// // "Confirm" button triggers "close" on dialog because of [formmethod="dialog"]
+// favDialog.addEventListener("close", (e) => {
+//   console.log(
+//     favDialog.returnValue === "default"
+//       ? "No return value."
+//       : `ReturnValue: ${favDialog.returnValue}.`); // Have to check for "default" rather than empty string
+// });
+
 confirmBtn.addEventListener("click", (event) => {
   event.preventDefault(); // We don't want to submit this fake form
-  favDialog.close(selectEl.value); // Have to send the select box value here.
+  favDialog.close();
 });
 
 
